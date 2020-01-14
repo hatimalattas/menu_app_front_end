@@ -32,7 +32,3 @@ export default class Menu extends React.Component {
     }
 }
 
-// { this.state.menu.map(menu => <li >{menu.name}</li>) }
-// { this.state.menu.map(menu => <img src={menu.image}></img>) }
-// { this.state.menu.map(menu => <li>{menu.description}</li>) }
-// { this.state.menu.map(menu => <li>{menu.price}</li>) }

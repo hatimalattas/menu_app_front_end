@@ -5,6 +5,7 @@ import image4 from './images/image4.jpg';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
+
 export default class LandingPageCourser extends React.Component {
 
     btnClick = () => {
@@ -13,7 +14,12 @@ export default class LandingPageCourser extends React.Component {
 
     render() {
         return (
-            <Carousel className="stopOnHover verticalSwipe">
+            <Carousel className="stopOnHover verticalSwipe" 
+            showThumbs={false} stopOnHover={true} 
+            showIndicators={false} showStatus={false} 
+            showArrows={false} infiniteLoop={true}
+            autoPlay={true} transitionTime={1000}
+            dynamicHeight={false} emulateTouch={true}>
             <div>
                 <img src={image2} />
                 <h1>Great Offers</h1>
