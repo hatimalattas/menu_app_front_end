@@ -14,9 +14,16 @@ class Menuform extends Component {
         });
     };
 
-    onSubmit = () => {
-        console.log(this.state);
-    }
+    onSubmit = e => {
+        e.preventDefault();
+        this.props.onSubmit(this.state);
+        this.setState({
+        name: "",
+        image: "",
+        description: "",
+        price: ""
+        });
+    };
 
     render() {
         return (
@@ -53,7 +60,7 @@ class Menuform extends Component {
                     onChange={e => this.change(e)}>
                     </input>
                     <br></br>
-                    <button onClick={() => this.onSubmit()}>Submit</button>
+                    <button onClick={e => this.onSubmit(e)}></button>
                 </form>
             </div>
         );
@@ -61,4 +68,3 @@ class Menuform extends Component {
 }
 
 export default Menuform;
-

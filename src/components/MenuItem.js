@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import Menuform from './Menuform';
 
 class MenuItem extends Component {
-    render() {
+
+    onSubmit = (fields) => {
+        console.log('App comp got: ', fields)
+    }
+
+
+    render() { 
         return (
             <div className="container">
                 <div className="card">
@@ -10,7 +16,7 @@ class MenuItem extends Component {
                 <img src={this.props.item.image} className="foodpic"></img>
                 <p>{this.props.item.description}</p>
                 <p>{this.props.item.price}</p>
-                <Menuform></Menuform>       
+                <Menuform onSubmit={fields => this.onSubmit(fields)}></Menuform>       
                 </div>
             </div>
         );
