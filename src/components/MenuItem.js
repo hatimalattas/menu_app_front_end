@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import Menuform from './Menuform';
+import AddMenuItem from './AddMenuItem';
 
 class MenuItem extends Component {
 
-    onSubmit = (fields) => {
-        console.log('App comp got: ', fields)
-    }
+    state = {
+        fields: {}
+    };
+
+    onChange = upadatedValue => {
+        this.setState({ 
+            fileds: {
+            ...this.state.fields,
+            ...upadatedValue 
+        }
+    });
+    };
 
 
     render() { 
@@ -16,7 +26,7 @@ class MenuItem extends Component {
                 <img src={this.props.item.image} className="foodpic"></img>
                 <p>{this.props.item.description}</p>
                 <p>{this.props.item.price}</p>
-                <Menuform onSubmit={fields => this.onSubmit(fields)}></Menuform>       
+                <Menuform onChange={fields => this.onChange(fields)} restaurant_id={this.props.item.restaurant_id} menu_item_id={this.props.item.id}></Menuform>     
                 </div>
             </div>
         );

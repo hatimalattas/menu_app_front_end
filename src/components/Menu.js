@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import MenuItem from './MenuItem';
 import Menuform from './Menuform';
+import AddMenuItem from './AddMenuItem'
 
 export default class Menu extends React.Component {
     state = {
@@ -15,19 +16,28 @@ export default class Menu extends React.Component {
         });
     }
 
+    onChange = upadatedValue => {
+        this.setState({ 
+            fileds: {
+            ...this.state.fields,
+            ...upadatedValue 
+        }
+    });
+    };
+
 
 
     render() {
         const menu_items = this.state.menu.map((e,i) =>(
-            <MenuItem key={i} item={e} />
+            <MenuItem key={i} item={e}/>
         ))
         return (
             
             <div className="item container-m">
                 {menu_items}
-            </div>
-            
-            
+                <AddMenuItem  onChange={fields => this.onChange(fields)} restaurant_id={this.props.restaurant_id}></AddMenuItem>
+                
+            </div>       
         )
     }
 }
