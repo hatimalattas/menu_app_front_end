@@ -12,21 +12,6 @@ import {
     Route,
     Link
   } from 'react-router-dom';
-  import { Menu } from 'semantic-ui-react'
-
-  const menuStyle = {
-    border: 'none',
-    borderRadius: 0,
-    boxShadow: 'none',
-    marginBottom: '1em',
-    transition: 'box-shadow 0.5s ease, padding 0.5s ease'
-  };
-  
-  const fixedMenuStyle = {
-    backgroundColor: '#fff',
-    border: '1px solid #ddd',
-    boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)'
-  };
 
 class Header extends Component {
 
@@ -120,17 +105,18 @@ class Header extends Component {
         //   </Router>
 
 
-            <div className='logo'>
+            <div>
                 <Router>    
-                <div>
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <div style={{width: '100%'}}>
+                    <nav style={{width: '100%'}} className="navbar navbar-expand-lg navbar-light bg-light">
                         {/* <link to="/">Home</link>{" "} */}
+                        <div>
                         <Link className="navbar-brand" to="/restaurants">Restaurants</Link>{" "}
                         <Link className="navbar-brand" to="/contactus">ContactUs</Link>{" "}
                         <Link className="navbar-brand" to="/aboutus">AboutUs</Link>{" "}
                         <Link className="navbar-brand" to="/menu">Menu</Link>{" "}
                         {this.state.isLoggedIn? loggedInLinks : loggedOutLinks }
-
+                        </div>
                     </nav>
                 </div>
                 
@@ -149,8 +135,31 @@ class Header extends Component {
           {/* <button onClick={(e)=>this.change(e)}> Sign In </button> */}
 
             </div>
-                
-                
+
+    //     <nav style={{overflowX: 'hidden'}} className="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    //     <div style={{overflowX: 'hidden'}} className="container">
+    //       <a className="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+    //       <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    //         <span className="navbar-toggler-icon" />
+    //       </button>
+    //       <div className="collapse navbar-collapse" id="navbarResponsive">
+    //         <ul className="navbar-nav ml-auto my-2 my-lg-0">
+    //           <li className="nav-item">
+    //             <a className="nav-link js-scroll-trigger" href="#about">About</a>
+    //           </li>
+    //           <li className="nav-item">
+    //             <a className="nav-link js-scroll-trigger" href="#services">Services</a>
+    //           </li>
+    //           <li className="nav-item">
+    //             <a className="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+    //           </li>
+    //           <li className="nav-item">
+    //             <a className="nav-link js-scroll-trigger" href="#contact">Contact</a>
+    //           </li>
+    //         </ul>
+    //       </div>
+    //     </div>
+    //   </nav>   
         );
     }
 }
